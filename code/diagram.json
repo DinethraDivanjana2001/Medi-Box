@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "author": "Rebecca Fernando",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": 265.8, "left": -170, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -4.76, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -7.2,
+      "left": 155.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -18.9,
+      "left": -111,
+      "attrs": { "temperature": "69.8" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 124.5,
+      "left": -293.5,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr2",
+      "top": 114.9,
+      "left": 320.9,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": -78.8, "left": 278.4, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:5V", "bb1:tp.11", "red", [ "h0" ] ],
+    [ "esp:GND.3", "bb1:tn.24", "black", [ "h0" ] ],
+    [ "bz1:2", "esp:5", "green", [ "v0" ] ],
+    [ "bz1:1", "bb1:tn.28", "black", [ "v0" ] ],
+    [ "dht1:GND", "bb1:tn.4", "black", [ "v0" ] ],
+    [ "dht1:SDA", "esp:12", "green", [ "v0" ] ],
+    [ "ldr1:GND", "bb1:tn.1", "black", [ "v0" ] ],
+    [ "ldr1:VCC", "bb1:tp.1", "red", [ "v0" ] ],
+    [ "ldr2:VCC", "bb1:tp.49", "red", [ "v0" ] ],
+    [ "bb1:tn.48", "ldr2:GND", "black", [ "v0" ] ],
+    [ "bb1:tp.50", "bb1:bp.50", "red", [ "v0" ] ],
+    [ "bb1:tn.49", "bb1:bn.49", "black", [ "v0" ] ],
+    [ "dht1:VCC", "bb1:tp.4", "red", [ "v0" ] ],
+    [ "esp:32", "ldr1:AO", "violet", [ "h-38.25", "v172.8", "h-182.4" ] ],
+    [ "ldr2:AO", "esp:33", "purple", [ "v9.6", "h-412.1", "v-144" ] ],
+    [ "servo1:PWM", "esp:18", "cyan", [ "h-38.4", "v144.2" ] ],
+    [ "servo1:GND", "bb1:tn.31", "black", [ "h0" ] ],
+    [ "bb1:tp.32", "servo1:V+", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
