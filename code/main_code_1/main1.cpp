@@ -5,7 +5,7 @@
 #include <WiFi.h>
 
 // OLED display properties
-#define SCREEN_WIDTH 128 //OLEDcdisaplay width , in pixels
+#define SCREEN_WIDTH 128 //OLEDcdisaplay width ,  in pixels
 #define SCREEN_HEIGHT 64  // OLED dispaly height ,  in pixels
 #define OLED_RESET   -1  // Reset pin  # (or  -1 if  sharing Arduino reset pin)
 #define SCREEN_ADDRESS 0x3C // OLED display I2C adress
